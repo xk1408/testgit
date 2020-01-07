@@ -1,0 +1,38 @@
+decl context = db_oa_create_empty_design("MyLibrary_lib", "my_layout", "layout", 2);
+de_show_context_in_new_window(context);
+context = NULL;
+//创建Layout
+
+//修改介质板参数
+de_bring_view_to_top_or_open_new_window("MyLibrary_lib", "defaults", "schematic", 3);
+decl itemInfo0SP=de_edit_item("VAR1");
+de_set_item_parameters(itemInfo0SP, list(list(prm_ex("ads_datacmps","VarFormStdForm",prm_ex("ads_datacmps","VarNameForm","my_x"),prm_ex("ads_datacmps","VarValueForm","77")),prm_ex("ads_datacmps","VarFormStdForm",prm_ex("ads_datacmps","VarNameForm","my_y"),prm_ex("ads_datacmps","VarValueForm","7")))));
+de_end_edit_item(itemInfo0SP);
+de_save_oa_design("MyLibrary_lib:defaults:schematic");
+de_close_window();
+
+//cond2中加入Path
+db_set_entry_layerid( de_get_current_design_context(), db_find_layerid_by_name( de_get_current_design_context(), "cond2:drawing"));
+de_add_path();
+de_add_point(0, 0);
+de_add_point(10, 0);
+decl shape = de_end();
+db_set_net(shape, "N__0");
+
+//插入Pin
+decl snapX = db_get_x(P1);
+decl pin1 = db_create_pin(de_get_current_design_context(), 1, 1);
+//读取端口坐标
+
+
+de_bring_view_to_top_or_open_new_window("spiral_lib", "defaults", "schematic", 3);
+decl snapCoordH = db_get_pin_snap_point(N__1);
+decl snapX = db_get_x(snapCoordH);
+decl snapY = db_get_y(snapCoordH);
+//从原理图中导入介质板
+
+//插入元件Tline
+
+//无插入端口命令
+
+//开始仿真后命令行就不显示命令了
