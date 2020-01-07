@@ -1,3 +1,4 @@
+改着玩一下
 decl context = db_oa_create_empty_design("MyLibrary_lib", "my_layout", "layout", 2);
 de_show_context_in_new_window(context);
 context = NULL;
