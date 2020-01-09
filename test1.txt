@@ -1,1 +1,2 @@
-print(666)
+hello
+how are you
